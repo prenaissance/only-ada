@@ -44,6 +44,7 @@ rules:
   react/jsx-indent-props: [error, 2]
   react/jsx-curly-spacing: [error, never]
   react/jsx-tag-spacing: [error, { beforeSelfClosing: always }]
+  "@typescript-eslint/ban-types": off
   react/jsx-wrap-multilines:
     - error
     - declaration: parens-new-line
