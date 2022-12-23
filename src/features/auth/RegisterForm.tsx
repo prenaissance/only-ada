@@ -68,9 +68,7 @@ const RegisterSchema = z.object({
 
 type RegisterData = z.infer<typeof RegisterSchema>;
 
-const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
-  const navigate = useNavigate();
-  const redirectTo = new URLSearchParams(window.location.search).get("redirectTo") || "/";
+const SecondStageForm = ({ defaultEmail, onMoveToLogin }: { defaultEmail: string } & Props) => {
   const defaultValues = {
     email: defaultEmail,
   };
@@ -89,8 +87,7 @@ const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
       if (response.status !== 200) {
         throw new Error("Something went wrong");
       }
-      // set token in local storage
-      navigate(redirectTo);
+      onMoveToLogin?.();
     } catch (err) {
       console.error(err);
     }
@@ -136,11 +133,13 @@ const RegisterForm = ({ onMoveToLogin }: Props) => {
   return (
     <>
       {isSecondStage ? (
-        <SecondStageForm defaultEmail={defaultEmail} />
+        <SecondStageForm defaultEmail={defaultEmail} onMoveToLogin={onMoveToLogin} />
       ) : (
         <FirstStageForm onMoveStage={handleMoveStage} />
       )}
-      <a onClick={onMoveToLogin}>Login instead</a>
+      <a className="cursor-pointer" onClick={onMoveToLogin}>
+        Login instead
+      </a>
     </>
   );
 };

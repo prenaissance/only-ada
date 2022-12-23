@@ -63,7 +63,11 @@ const LoginSchema = z.object({
     .regex(/[0-9]{2,}/),
 });
 
-type RegisterData = z.infer<typeof LoginSchema>;
+type LoginData = z.infer<typeof LoginSchema>;
+
+type LoginResponse = {
+  token: string;
+};
 
 const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
   const navigate = useNavigate();
@@ -75,18 +79,18 @@ const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterData>({
+  } = useForm<LoginData>({
     resolver: zodResolver(LoginSchema),
     defaultValues,
   });
 
-  const onSubmit: SubmitHandler<RegisterData> = async data => {
+  const onSubmit: SubmitHandler<LoginData> = async data => {
     try {
-      const response = await axiosPublic.post("/users/login-otp", data);
+      const response = await axiosPublic.post<LoginResponse>("/users/login-otp", data);
       if (response.status !== 200) {
         throw new Error("Something went wrong");
       }
-      // set token in local storage
+      localStorage.setItem("token", response.data.token);
       navigate(redirectTo);
     } catch (err) {
       console.error(err);
@@ -130,7 +134,9 @@ const LoginForm = ({ onMoveToRegister }: Props) => {
       ) : (
         <FirstStageForm onMoveStage={handleMoveStage} />
       )}
-      <a onClick={onMoveToRegister}>Register instead</a>
+      <a className="cursor-pointer" onClick={onMoveToRegister}>
+        Register instead
+      </a>
     </>
   );
 };
