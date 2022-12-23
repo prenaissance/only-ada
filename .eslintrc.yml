@@ -45,6 +45,7 @@ rules:
   react/jsx-curly-spacing: [error, never]
   react/jsx-tag-spacing: [error, { beforeSelfClosing: always }]
   "@typescript-eslint/ban-types": off
+  "@typescript-eslint/no-empty-function": off
   react/jsx-wrap-multilines:
     - error
     - declaration: parens-new-line

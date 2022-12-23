@@ -1,8 +1,7 @@
-import { useState } from "react";
-import Home from "@pages/Home";
+import Router from "@app/Router";
 
 function App() {
-  return <Home />;
+  return <Router />;
 }
 
 export default App;
