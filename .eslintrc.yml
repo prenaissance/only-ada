@@ -39,6 +39,7 @@ rules:
   array-bracket-spacing: [error, never]
   comma-spacing: [error, { before: false, after: true }]
   object-curly-spacing: [error, always]
+  react/react-in-jsx-scope: off
   react/jsx-indent: [error, 2]
   react/jsx-indent-props: [error, 2]
   react/jsx-curly-spacing: [error, never]
