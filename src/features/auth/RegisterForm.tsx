@@ -54,7 +54,7 @@ const FirstStageForm = ({ onMoveStage }: { onMoveStage: (email: string) => void 
 
 const RegisterSchema = z.object({
   email: z.string().email(),
-  otp: z.string().min(6).max(3),
+  otp: z.string().min(6).max(6),
   firstName: z.string().min(3),
   lastName: z.string().min(3),
   password: z
@@ -79,6 +79,7 @@ const SecondStageForm = ({ defaultEmail, onMoveToLogin }: { defaultEmail: string
   } = useForm<RegisterData>({
     resolver: zodResolver(RegisterSchema),
     defaultValues,
+    mode: "onBlur",
   });
 
   const onSubmit: SubmitHandler<RegisterData> = async data => {
@@ -109,7 +110,7 @@ const SecondStageForm = ({ defaultEmail, onMoveToLogin }: { defaultEmail: string
       <TextField id="lastName" {...register("lastName")} />
       {errors.lastName && <p className="text-red-500">{errors.lastName.message}</p>}
       <InputLabel htmlFor="password">Password</InputLabel>
-      <TextField id="password" {...register("password")} />
+      <TextField id="password" type="password" {...register("password")} />
       {errors.password && <p className="text-red-500">{errors.password.message}</p>}
       <InputLabel htmlFor="phone">Phone</InputLabel>
       <TextField id="phone" {...register("phone")} />

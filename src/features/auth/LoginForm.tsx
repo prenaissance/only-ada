@@ -54,7 +54,7 @@ const FirstStageForm = ({ onMoveStage }: { onMoveStage: (email: string) => void 
 
 const LoginSchema = z.object({
   email: z.string().email(),
-  otp: z.string().min(6).max(3),
+  otp: z.string().length(6),
   password: z
     .string()
     .min(6)
@@ -82,6 +82,7 @@ const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
   } = useForm<LoginData>({
     resolver: zodResolver(LoginSchema),
     defaultValues,
+    mode: "onBlur",
   });
 
   const onSubmit: SubmitHandler<LoginData> = async data => {
@@ -106,11 +107,9 @@ const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
       <InputLabel htmlFor="otp">OTP</InputLabel>
       <TextField id="otp" {...register("otp")} />
       {errors.otp && <p className="text-red-500">{errors.otp.message}</p>}
-      <InputLabel htmlFor="firstName">First Name</InputLabel>
       <InputLabel htmlFor="password">Password</InputLabel>
-      <TextField id="password" {...register("password")} />
+      <TextField type="password" id="password" {...register("password")} />
       {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-      <InputLabel htmlFor="phone">Phone</InputLabel>
       <Button type="submit" variant="contained" color="primary" sx={{ mt: "0.5rem", alignSelf: "stretch" }}>
         Login
       </Button>
