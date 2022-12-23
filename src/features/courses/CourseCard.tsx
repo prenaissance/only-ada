@@ -5,7 +5,7 @@ type Props = {};
 const CourseCard = (props: Props) => {
   return (
     <div>
-      <div></div>
+      <div>course card</div>
     </div>
   );
 };
