@@ -23,18 +23,18 @@ const navabar_links = [
 
 const Navbar = () => {
   return (
-    <div className="absolute top-0 inset-x-0 h-16 bg-beige">
+    <div className="absolute top-0 inset-x-0 h-16 bg-yellow">
       <Grid container spacing={2} sx={{ maxWidth: "80%", m: "0 auto", height: "100%" }}>
         <Grid item xs={7}>
           <div className="flex justify-between items-center text-lg text-blue">
             {navabar_links.map(({ text, path }) => (
-              <Link to={path} key={text} className="no-underline text-blue hover:text-blue">
+              <Link to={path} key={text} className="no-underline text-blue font-bold hover:text-blue">
                 {text}
               </Link>
             ))}
           </div>
         </Grid>
-        <Grid item xs={1} sx={{ marginLeft: "auto" }}>
+        <Grid item xs={1} sx={{ marginLeft: "auto", marginTop: "-4px" }}>
           <Link to="/" className="no-underline text-blue hover:text-blue">
             <AiOutlineUser className="w-9 h-9" />
           </Link>
