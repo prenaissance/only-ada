@@ -32,11 +32,16 @@ const CreateTrainingForm = () => {
   });
 
   const onSubmit = async (data: TrainingFormData) => {
-    console.log(data);
-    await axiosPublic.post("/trainings", data);
-    postNotification("Training created successfully", "success");
+    try {
+      await axiosPublic.post("/trainings", data);
+      postNotification("Training created successfully", "success");
 
-    reset();
+      reset();
+    } catch (err) {
+      const error = err as Error;
+      console.error(error);
+      postNotification(`Training creation failed ${error.message}`, "error");
+    }
   };
 
   return (

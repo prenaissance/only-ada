@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
 import { GrClose } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -70,6 +71,11 @@ export default function CourseDialog({ showDialog, handleDialogClose, course }) 
             Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
             consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
           </Typography>
+          <Link to={`/courses/${course.name}`}>
+            <Button color="warning" variant="contained" fullWidth>
+              Go to course
+            </Button>
+          </Link>
         </DialogContent>
       </BootstrapDialog>
     </div>

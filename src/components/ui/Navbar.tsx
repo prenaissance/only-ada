@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdOutlineGeneratingTokens } from "react-icons/md";
 
-const navabar_links = [
+const navbarLinks = [
   {
     path: "/",
     text: "Home",
@@ -28,14 +28,14 @@ const navabar_links = [
 
 const Navbar = () => {
   return (
-    <div className="absolute top-0 inset-x-0 h-16 bg-medium_blue">
+    <div className="absolute top-0 inset-x-0 h-16 bg-medium_blue shadow-md">
       <Grid container spacing={2} sx={{ maxWidth: "80%", m: "0 auto", height: "100%" }}>
         <Grid item xs={7}>
           <div className="flex justify-between items-center text-lg">
             <Link to="/">
               <img className="h-10 w-30" src={"/logos/onlyAdaWhite.png"}></img>
             </Link>
-            {navabar_links.map(({ text, path }) => (
+            {navbarLinks.map(({ text, path }) => (
               <Link to={path} key={text} className="no-underline text-dark_blue font-bold hover:text-dark_blue">
                 {text}
               </Link>

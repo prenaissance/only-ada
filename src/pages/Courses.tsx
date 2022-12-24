@@ -23,7 +23,7 @@ const Courses: React.FC = () => {
       userCount: 210,
       price: 22,
       token: 220,
-      mentor: "Johny Sins",
+      mentor: "Johnny Doe",
     },
     {
       name: "Introduction to Sculpture",

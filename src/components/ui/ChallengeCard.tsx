@@ -3,11 +3,17 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea } from "@mui/material";
 
-const ChallengeCard = ({ text, type, reward }) => {
+type Props = {
+  text: string | JSX.Element;
+  type: string;
+  reward: number;
+};
+
+const ChallengeCard = ({ text, type, reward }: Props) => {
   return (
     <Card sx={{ maxWidth: 345, height: 445 }}>
-      <CardActionArea>
-        <CardContent>
+      <CardActionArea sx={{ height: "100%" }}>
+        <CardContent sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
           <Typography gutterBottom variant="h4" component="div" textAlign={"center"} paddingBottom="20px">
             {type}
           </Typography>
@@ -17,7 +23,7 @@ const ChallengeCard = ({ text, type, reward }) => {
           <Typography variant="body1" color="orange" fontWeight={"bold"} textAlign={"center"} paddingBottom="20px">
             Reward: {reward} Tokens
           </Typography>
-          <Button variant="outlined" color="error">
+          <Button variant="outlined" sx={{ mt: "auto" }} fullWidth color="error">
             Claim Reward
           </Button>
         </CardContent>

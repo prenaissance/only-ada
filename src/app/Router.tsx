@@ -6,6 +6,7 @@ import Layout from "@components/ui/Layout";
 import Challenges from "@pages/Challenges";
 import Upload from "@pages/Upload";
 import NewCourse from "@pages/NewCourse";
+import Course from "@pages/Course";
 
 const routeConfig = [
   {
@@ -21,12 +22,14 @@ const routeConfig = [
         path: "/login",
         element: <Login />,
       },
-
       {
         path: "/courses",
         element: <Courses />,
       },
-
+      {
+        path: "courses/:courseId",
+        element: <Course />,
+      },
       {
         path: "/challenges",
         element: <Challenges />,
