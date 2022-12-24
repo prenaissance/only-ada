@@ -13,8 +13,8 @@ const navabar_links = [
     text: "Courses",
   },
   {
-    path: "/",
-    text: "Link3",
+    path: "/challenges",
+    text: "Challenges",
   },
   {
     path: "/",

@@ -3,6 +3,7 @@ import Home from "@pages/Home";
 import Login from "@pages/Login";
 import Courses from "@pages/Courses";
 import Layout from "@components/ui/Layout";
+import Challenges from "@pages/Challenges";
 
 const routeConfig = [
   {
@@ -22,6 +23,11 @@ const routeConfig = [
       {
         path: "/courses",
         element: <Courses />,
+      },
+
+      {
+        path: "/challenges",
+        element: <Challenges />,
       },
     ],
   },

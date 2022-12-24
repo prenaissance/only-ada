@@ -1,4 +1,4 @@
-import { FormControlLabel, Checkbox, Grid, Box, Typography } from "@mui/material";
+import { FormControlLabel, Checkbox, Grid, Box, Typography, Slider } from "@mui/material";
 
 import React, { useState } from "react";
 
@@ -27,7 +27,11 @@ function CategoryFilter() {
       }}
     >
       <Typography color="#1E728E" variant="body1" fontWeight="bold">
-        Courses Types
+        Price Range:
+      </Typography>
+      <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+      <Typography color="#1E728E" variant="body1" fontWeight="bold">
+        Courses Types:
       </Typography>
       <form>
         <Grid container direction="column">
