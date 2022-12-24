@@ -5,6 +5,7 @@ import { TextField, Button, InputLabel } from "@mui/material";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { axiosPublic } from "@api/axios-public";
 import { useNavigate } from "react-router-dom";
+import { useNotification } from "@components/NotificationProvider";
 
 type Props = {
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -18,6 +19,7 @@ const OtpDataSchema = z.object({
 type OtpData = z.infer<typeof OtpDataSchema>;
 
 const FirstStageForm = ({ onMoveStage }: { onMoveStage: (email: string) => void }) => {
+  const { postNotification } = useNotification();
   // Use the useForm hook to initialize the form, passing zodResolver as a parameter
   const {
     register,
@@ -35,8 +37,11 @@ const FirstStageForm = ({ onMoveStage }: { onMoveStage: (email: string) => void 
         throw new Error("Something went wrong");
       }
       onMoveStage(data.email);
+      postNotification("OTP sent successfully", "success");
     } catch (err) {
-      console.error(err);
+      const error = err as Error;
+      console.error(error);
+      postNotification(`Login failed ${error.message}`, "error");
     }
   };
 
@@ -70,6 +75,7 @@ type LoginResponse = {
 };
 
 const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
+  const { postNotification } = useNotification();
   const navigate = useNavigate();
   const redirectTo = new URLSearchParams(window.location.search).get("redirectTo") || "/";
   const defaultValues = {
@@ -92,9 +98,12 @@ const SecondStageForm = ({ defaultEmail }: { defaultEmail: string }) => {
         throw new Error("Something went wrong");
       }
       localStorage.setItem("token", response.data.token);
+      postNotification("Login successful", "success");
       navigate(redirectTo);
     } catch (err) {
-      console.error(err);
+      const error = err as Error;
+      console.error(error);
+      postNotification(`Login failed ${error.message}`, "error");
     }
   };
 

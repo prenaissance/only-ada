@@ -5,19 +5,19 @@ import { TextField, Button, InputLabel } from "@mui/material";
 import { zodResolver } from "@hookform/resolvers/zod";
 import GridContainer from "@components/ui/GridContainer";
 import { axiosPublic } from "@api/axios-public";
+import { useNotification } from "@components/NotificationProvider";
 
 const TrainingFormSchema = z.object({
   name: z.string().min(2),
-  price: z
-    .string()
-    .regex(/^[0-9]{6}$/)
-    .transform(value => Number(value)),
+  price: z.string().transform(value => Number(value)),
   category: z.string().min(2),
+  image: z.string().url(),
 });
 
 type TrainingFormData = z.infer<typeof TrainingFormSchema>;
 
 const CreateTrainingForm = () => {
+  const { postNotification } = useNotification();
   const {
     reset,
     register,
@@ -26,10 +26,16 @@ const CreateTrainingForm = () => {
   } = useForm<TrainingFormData>({
     resolver: zodResolver(TrainingFormSchema),
     mode: "onBlur",
+    defaultValues: {
+      image: "https://picsum.photos/200/200",
+    },
   });
 
   const onSubmit = async (data: TrainingFormData) => {
+    console.log(data);
     await axiosPublic.post("/trainings", data);
+    postNotification("Training created successfully", "success");
+
     reset();
   };
 
