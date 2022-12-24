@@ -3,6 +3,7 @@ import CourseCard from "@features/courses/CourseCard";
 import CategoryFilter from "@components/ui/CategoryFilter";
 import { Box, Grid } from "@mui/material";
 import { useState } from "react";
+import GridContainer from "@components/ui/GridContainer";
 
 const Courses: React.FC = () => {
   const courses = [
@@ -75,39 +76,26 @@ const Courses: React.FC = () => {
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          mt: {
-            sm: "125px",
-            md: "80px",
-            xl: "100px",
-          },
-        }}
-      />
-      <Box sx={{ flexGrow: "1" }}>
-        <Grid container spacing={2} sx={{ maxWidth: "80%", m: "0 auto", height: "100%" }}>
-          <Grid item xs={3}>
-            <CategoryFilter />
-          </Grid>
-          {courses.map((course, index) => (
-            <CourseCard
-              key={index}
-              image={course.image}
-              name={course.name}
-              rating={course.rating}
-              userCount={course.userCount}
-              onCardClick={onCardClick}
-              index={index}
-              price={course.price}
-              mentor={course.mentor}
-              token={course.token}
-            />
-          ))}
-        </Grid>
-      </Box>
+    <GridContainer>
+      <Grid item xs={3}>
+        <CategoryFilter />
+      </Grid>
+      {courses.map((course, index) => (
+        <CourseCard
+          key={index}
+          image={course.image}
+          name={course.name}
+          rating={course.rating}
+          userCount={course.userCount}
+          onCardClick={onCardClick}
+          index={index}
+          price={course.price}
+          mentor={course.mentor}
+          token={course.token}
+        />
+      ))}
       <CourseDialog showDialog={showDialog} handleDialogClose={handleDialogClose} course={courses[selectedCourse]} />
-    </>
+    </GridContainer>
   );
 };
 

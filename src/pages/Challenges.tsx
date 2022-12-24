@@ -1,4 +1,5 @@
 import ChallengeCard from "@components/ui/ChallengeCard";
+import GridContainer from "@components/ui/GridContainer";
 import { Grid } from "@mui/material";
 
 const challenges = [
@@ -21,13 +22,13 @@ const challenges = [
 
 const Challenges = () => {
   return (
-    <Grid container spacing={2}>
+    <GridContainer spacing={2}>
       {challenges.map((challenge, index) => (
         <Grid key={index} item xs={4}>
           <ChallengeCard type={challenge.type} text={challenge.text} reward={challenge.reward} />
         </Grid>
       ))}
-    </Grid>
+    </GridContainer>
   );
 };
 
