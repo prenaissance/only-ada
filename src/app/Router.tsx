@@ -4,6 +4,8 @@ import Login from "@pages/Login";
 import Courses from "@pages/Courses";
 import Layout from "@components/ui/Layout";
 import Challenges from "@pages/Challenges";
+import Upload from "@pages/Upload";
+import NewCourse from "@pages/NewCourse";
 
 const routeConfig = [
   {
@@ -28,6 +30,14 @@ const routeConfig = [
       {
         path: "/challenges",
         element: <Challenges />,
+      },
+      {
+        path: "upload",
+        element: <Upload />,
+      },
+      {
+        path: "new-course",
+        element: <NewCourse />,
       },
     ],
   },

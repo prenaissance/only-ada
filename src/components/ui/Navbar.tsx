@@ -17,8 +17,12 @@ const navabar_links = [
     text: "Challenges",
   },
   {
-    path: "/",
-    text: "Link4",
+    path: "/upload",
+    text: "Upload",
+  },
+  {
+    path: "/new-course",
+    text: "New Course",
   },
 ];
 
