@@ -38,7 +38,7 @@ const Navbar = () => {
             ))}
           </div>
         </Grid>
-        <Grid item xs={1} sx={{ marginLeft: "auto", marginTop: "-4px" }}>
+        <Grid item sx={{ marginLeft: "auto", marginTop: "-4px" }}>
           <Link to="/" className="no-underline text-dark_blue hover:text-dark_blue">
             <AiOutlineUser className="w-9 h-9" />
           </Link>
