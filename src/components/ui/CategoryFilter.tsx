@@ -47,7 +47,7 @@ function CategoryFilter() {
                   }}
                 />
               }
-              label="Option 1"
+              label="Art"
               style={{ color: "#1E728E" }}
             />
           </Grid>
@@ -63,7 +63,7 @@ function CategoryFilter() {
                   }}
                 />
               }
-              label="Option 2"
+              label="Personal Development"
               style={{ color: "#1E728E" }}
             />
           </Grid>
@@ -79,7 +79,7 @@ function CategoryFilter() {
                   }}
                 />
               }
-              label="Option 3"
+              label="Sports"
               style={{ color: "#1E728E" }}
             />
           </Grid>

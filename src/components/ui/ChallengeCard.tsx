@@ -1,29 +1,25 @@
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { Button, CardActionArea } from "@mui/material";
 
 const ChallengeCard = ({ text, type, reward }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: 445 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h4" component="div" textAlign={"center"} paddingBottom="20px">
             {type}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" paddingBottom={"15px"}>
             {text}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {reward}
+          <Typography variant="body1" color="orange" fontWeight={"bold"} textAlign={"center"} paddingBottom="20px">
+            Reward: {reward} Tokens
           </Typography>
+          <Button variant="outlined" color="error">
+            Claim Reward
+          </Button>
         </CardContent>
       </CardActionArea>
     </Card>
