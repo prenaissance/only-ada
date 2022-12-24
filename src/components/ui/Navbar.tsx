@@ -17,10 +17,6 @@ const navbarLinks = [
     text: "Challenges",
   },
   {
-    path: "/upload",
-    text: "Upload",
-  },
-  {
     path: "/new-course",
     text: "New Course",
   },

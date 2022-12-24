@@ -35,12 +35,11 @@ const FileUpload = () => {
 
   const handleFiles = (files: FileList) => {
     // handle the files here (e.g. upload to a server, preview the images, etc.)
-    console.log(files);
   };
 
   return (
     <div
-      className="relative w-64 h-64 border border-gray-400 rounded-md cursor-pointer hover:bg-gray-200"
+      className="relative w-64 h-24 my-2 border border-gray-400 rounded-md cursor-pointer hover:bg-gray-200"
       onDragEnter={handleDragEnter}
       onDragOver={handleDragOver}
       onDrop={handleDrop}

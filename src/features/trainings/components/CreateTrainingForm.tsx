@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { TextField, Button, InputLabel } from "@mui/material";
@@ -6,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import GridContainer from "@components/ui/GridContainer";
 import { axiosPublic } from "@api/axios-public";
 import { useNotification } from "@components/NotificationProvider";
+import FileUpload from "@features/upload/components/FileUpload";
 
 const TrainingFormSchema = z.object({
   name: z.string().min(2),
@@ -68,6 +68,7 @@ const CreateTrainingForm = () => {
           error={!!errors.category}
         />
         <br />
+        <FileUpload />
         <Button sx={{ mt: "0.5rem" }} fullWidth variant="contained" type="submit">
           Create Course
         </Button>

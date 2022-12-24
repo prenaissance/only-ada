@@ -20,10 +20,17 @@ const ChallengeCard = ({ text, type, reward }: Props) => {
           <Typography variant="body2" color="text.secondary" paddingBottom={"15px"}>
             {text}
           </Typography>
-          <Typography variant="body1" color="orange" fontWeight={"bold"} textAlign={"center"} paddingBottom="20px">
+          <Typography
+            sx={{ mt: "auto" }}
+            variant="body1"
+            color="orange"
+            fontWeight={"bold"}
+            textAlign={"center"}
+            paddingBottom="20px"
+          >
             Reward: {reward} Tokens
           </Typography>
-          <Button variant="outlined" sx={{ mt: "auto" }} fullWidth color="error">
+          <Button variant="outlined" fullWidth color="error">
             Claim Reward
           </Button>
         </CardContent>

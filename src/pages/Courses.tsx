@@ -1,7 +1,7 @@
 import CourseDialog from "@components/ui/CourseDialog";
 import CourseCard from "@features/courses/CourseCard";
 import CategoryFilter from "@components/ui/CategoryFilter";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { useState } from "react";
 import GridContainer from "@components/ui/GridContainer";
 
@@ -23,7 +23,7 @@ const Courses: React.FC = () => {
       userCount: 210,
       price: 22,
       token: 220,
-      mentor: "Johnny Doe",
+      mentor: "Johnny Does",
     },
     {
       name: "Introduction to Sculpture",
@@ -59,7 +59,16 @@ const Courses: React.FC = () => {
       userCount: 41,
       price: 26,
       token: 23,
-      mentor: "Ada Addams",
+      mentor: "Sandu Vosta",
+    },
+    {
+      name: "Meditation course",
+      image: "https://picsum.photos/200/298",
+      rating: 2,
+      userCount: 41,
+      price: 26,
+      token: 23,
+      mentor: "Lorem Ipsum",
     },
   ];
 
