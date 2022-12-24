@@ -7,37 +7,37 @@ const Courses: React.FC = () => {
   const courses = [
     {
       name: "React for Beginners",
-      image: "/images/react-beginners.jpg",
+      image: "https://picsum.photos/201/301",
       rating: 4,
       userCount: 10,
     },
     {
       name: "Advanced JavaScript",
-      image: "/images/advanced-javascript.jpg",
+      image: "https://picsum.photos/199/299",
       rating: 5,
       userCount: 10,
     },
     {
       name: "Introduction to TypeScript",
-      image: "/images/typescript-intro.jpg",
+      image: "https://picsum.photos/201/300",
       rating: 4.5,
       userCount: 10,
     },
     {
       name: "AWS Cloud Practitioner",
-      image: "/images/aws-cloud-practitioner.jpg",
+      image: "https://picsum.photos/200/301",
       rating: 3.5,
       userCount: 10,
     },
     {
       name: "Data Structures and Algorithms",
-      image: "/images/data-structures.jpg",
+      image: "https://picsum.photos/199/300",
       rating: 4,
       userCount: 10,
     },
     {
       name: "Machine Learning with Python",
-      image: "/images/machine-learning-python.jpg",
+      image: "https://picsum.photos/200/299",
       rating: 5,
       userCount: 10,
     },

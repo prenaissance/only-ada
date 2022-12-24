@@ -5,8 +5,8 @@ import { MdGroups } from "react-icons/md";
 const CourseCard = ({ image, name, rating, userCount, onCardClick, index }) => {
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} key={name}>
-      <Card sx={{ height: "145px", cursor: "pointer" }} onClick={() => onCardClick(index)}>
-        <CardMedia image={image} title={name} />
+      <Card raised sx={{ height: "300px", cursor: "pointer" }} onClick={() => onCardClick(index)}>
+        <CardMedia sx={{ height: "150px" }} image={image} title={name} />
         <CardContent>
           <Stack height="107px" justifyContent="space-between">
             <Box>
