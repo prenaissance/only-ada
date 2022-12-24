@@ -1,5 +1,6 @@
 import CourseDialog from "@components/ui/CourseDialog";
 import CourseCard from "@features/courses/CourseCard";
+import CategoryFilter from "@components/ui/CategoryFilter";
 import { Box, Grid } from "@mui/material";
 import { useState } from "react";
 
@@ -10,36 +11,54 @@ const Courses: React.FC = () => {
       image: "https://picsum.photos/201/301",
       rating: 4,
       userCount: 10,
+      price: 20,
+      token: 150,
+      mentor: "Ada Addams",
     },
     {
       name: "Advanced JavaScript",
       image: "https://picsum.photos/199/299",
       rating: 5,
       userCount: 10,
+      price: 20,
+      token: 150,
+      mentor: "Ada Addams",
     },
     {
       name: "Introduction to TypeScript",
       image: "https://picsum.photos/201/300",
       rating: 4.5,
       userCount: 10,
+      price: 20,
+      token: 150,
+      mentor: "Ada Addams",
     },
     {
       name: "AWS Cloud Practitioner",
       image: "https://picsum.photos/200/301",
       rating: 3.5,
       userCount: 10,
+      price: 20,
+      token: 150,
+      mentor: "Ada Addams",
     },
     {
       name: "Data Structures and Algorithms",
       image: "https://picsum.photos/199/300",
       rating: 4,
       userCount: 10,
+      price: 20,
+      token: 150,
+      mentor: "Ada Addams",
     },
     {
       name: "Machine Learning with Python",
       image: "https://picsum.photos/200/299",
       rating: 5,
       userCount: 10,
+      price: 20,
+      token: 150,
+      mentor: "Ada Addams",
     },
   ];
 
@@ -59,6 +78,9 @@ const Courses: React.FC = () => {
     <>
       <Box sx={{ flexGrow: "1" }}>
         <Grid container spacing={2} sx={{ maxWidth: "80%", m: "0 auto", height: "100%" }}>
+          <Grid item xs={3}>
+            <CategoryFilter />
+          </Grid>
           {courses.map((course, index) => (
             <CourseCard
               key={index}
@@ -68,6 +90,9 @@ const Courses: React.FC = () => {
               userCount={course.userCount}
               onCardClick={onCardClick}
               index={index}
+              price={course.price}
+              mentor={course.mentor}
+              token={course.token}
             />
           ))}
         </Grid>
